@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heels on the Track — Fastline Racing Academy</title>
+<meta name="description" content="HEELS ON THE TRACK – szkolenie z jazdy na torze tylko dla kobiet. 21 czerwca 2026, Tor Łódź.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   FASTLINE RACING ACADEMY — HEELS ON THE TRACK
+   Boutique editorial layout
+   ============================================================ */
+
+:root{
+  --black:#0e0e0e;
+  --ink:#1a1a1a;
+  --paper:#f6f4f1;
+  --paper-2:#efece7;
+  --white:#ffffff;
+  --red:#C8102E;
+  --red-bright:#FF0000;
+  --gold:#b89a5e;
+  --grey:#8a8a8a;
+  --grey-line:#e2ddd6;
+  --maxw:1240px;
+  --serif:'Montserrat', Arial, sans-serif;
+  --sans:'Montserrat', Arial, sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+
+/* ============================== HEADER ============================== */
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(14,14,14,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:84px;gap:24px;
+}
+.logo img{height:46px;width:auto;}
+.nav{display:flex;align-items:center;gap:6px;}
+.nav > ul{display:flex;list-style:none;align-items:center;gap:2px;}
+.nav a{
+  color:#f3f1ee;font-size:12px;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;padding:12px 14px;display:block;position:relative;
+  transition:color .25s;
+}
+.nav a:hover{color:var(--red-bright);}
+.has-sub{position:relative;}
+.has-sub > a::after{content:"+";margin-left:6px;font-weight:400;color:var(--grey);}
+.submenu{
+  position:absolute;top:100%;left:0;min-width:330px;
+  background:#141414;border:1px solid rgba(255,255,255,.08);
+  list-style:none;padding:8px 0;
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:all .25s ease;box-shadow:0 24px 60px rgba(0,0,0,.5);
+}
+.has-sub:hover .submenu{opacity:1;visibility:visible;transform:translateY(0);}
+.submenu a{
+  text-transform:none;letter-spacing:.02em;font-size:12.5px;
+  padding:10px 22px;color:#cfccc8;white-space:nowrap;
+}
+.submenu a:hover{color:var(--white);background:rgba(200,16,46,.14);}
+
+.header-cta{display:flex;gap:10px;align-items:center;}
+.btn-pill{
+  font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:11px 18px;border:1px solid rgba(255,255,255,.25);color:#fff;
+  transition:all .25s;white-space:nowrap;
+}
+.btn-pill:hover{background:#fff;color:var(--black);}
+.btn-pill.red{background:var(--red);border-color:var(--red);}
+.btn-pill.red:hover{background:var(--red-bright);border-color:var(--red-bright);color:#fff;}
+
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.burger span{width:26px;height:2px;background:#fff;transition:.3s;}
+
+/* Mobile drawer */
+.mobile-nav{
+  position:fixed;inset:0;background:#0e0e0e;z-index:2000;
+  transform:translateX(100%);transition:transform .4s cubic-bezier(.6,.05,.1,1);
+  overflow-y:auto;padding:90px 28px 60px;
+}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav ul{list-style:none;}
+.mobile-nav > ul > li{border-bottom:1px solid rgba(255,255,255,.08);}
+.mobile-nav a{display:block;padding:15px 0;color:#eee;font-size:14px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;}
+.mobile-nav .submenu-m{padding-left:16px;}
+.mobile-nav .submenu-m a{font-size:12.5px;text-transform:none;color:#b8b5b1;padding:10px 0;font-weight:400;}
+.mobile-close{position:absolute;top:24px;right:24px;font-size:30px;color:#fff;background:none;border:none;cursor:pointer;line-height:1;}
+
+/* ============================== HERO ============================== */
+.hero{position:relative;height:92vh;min-height:560px;overflow:hidden;background:#000;}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.78) 100%);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  padding:0 24px;
+}
+.hero-kicker{
+  font-family:var(--sans);font-size:12px;letter-spacing:.5em;text-transform:uppercase;
+  color:var(--red-bright);margin-bottom:22px;font-weight:600;
+  opacity:0;animation:rise .9s .2s forwards;
+}
+.hero h1{
+  font-family:var(--serif);font-weight:700;color:#fff;
+  font-size:clamp(48px,8vw,108px);line-height:.95;letter-spacing:-.01em;
+  text-transform:uppercase;
+  opacity:0;animation:rise .9s .35s forwards;
+}
+.hero h1 em{font-style:italic;color:var(--red-bright);}
+.hero-meta{
+  margin-top:30px;display:flex;gap:34px;flex-wrap:wrap;justify-content:center;
+  opacity:0;animation:rise .9s .55s forwards;
+}
+.hero-meta div{text-align:center;}
+.hero-meta .lbl{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--grey);margin-bottom:5px;}
+.hero-meta .val{font-family:var(--serif);font-size:24px;color:#fff;}
+@keyframes rise{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+
+/* ============================== SECTIONS ============================== */
+.section{padding:110px 0;}
+.section.tight{padding:80px 0;}
+.eyebrow{
+  font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--red);
+  font-weight:600;margin-bottom:20px;
+}
+.h2{
+  font-family:var(--serif);font-weight:700;font-size:clamp(34px,5vw,58px);
+  line-height:1.02;letter-spacing:-.01em;color:var(--ink);
+}
+.h2 em{font-style:italic;color:var(--red);}
+
+/* Intro split */
+.intro-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center;}
+.intro-lead{font-family:var(--serif);font-size:23px;line-height:1.45;color:var(--ink);margin:24px 0;}
+.intro-grid p{margin-bottom:18px;color:#3a3a3a;font-size:15px;}
+.intro-grid p strong{color:var(--ink);}
+.intro-figure{position:relative;}
+.intro-figure img{width:100%;aspect-ratio:3/4;object-fit:cover;}
+.intro-figure::before{
+  content:"";position:absolute;top:-22px;left:-22px;width:120px;height:120px;
+  border-top:2px solid var(--red);border-left:2px solid var(--red);z-index:2;
+}
+.intro-figure::after{
+  content:"";position:absolute;bottom:-22px;right:-22px;width:120px;height:120px;
+  border-bottom:2px solid var(--red);border-right:2px solid var(--red);
+}
+
+/* Program checklist */
+.program{background:var(--ink);color:#f3f1ee;}
+.program .eyebrow{color:var(--red-bright);}
+.program .h2{color:#fff;}
+.checklist{
+  margin-top:50px;display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.check-item{
+  display:flex;gap:18px;align-items:flex-start;padding:26px 30px 26px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.check-item:nth-child(odd){padding-right:40px;border-right:1px solid rgba(255,255,255,.12);padding-left:0;}
+.check-item:nth-child(even){padding-left:40px;}
+.check-num{font-family:var(--serif);font-size:30px;color:var(--red-bright);line-height:1;min-width:42px;}
+.check-item p{font-size:15px;color:#dcd9d4;line-height:1.5;}
+
+/* Theory / practice columns */
+.tp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--grey-line);}
+.tp-col{padding:54px 48px;}
+.tp-col:first-child{border-right:1px solid var(--grey-line);background:var(--white);}
+.tp-col:last-child{background:var(--paper-2);}
+.tp-col h3{
+  font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:8px;color:var(--ink);
+}
+.tp-col .tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:22px;display:block;}
+.tp-col p{font-size:14.5px;color:#444;margin-bottom:14px;}
+.practice-list{list-style:none;}
+.practice-list li{
+  padding:13px 0 13px 30px;position:relative;font-size:14.5px;color:#333;
+  border-bottom:1px dashed var(--grey-line);
+}
+.practice-list li::before{
+  content:"";position:absolute;left:0;top:19px;width:9px;height:9px;background:var(--red);
+}
+.practice-list li:last-child{border-bottom:none;}
+
+/* ============================== OFERTA / PRICING ============================== */
+.offer{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%);}
+.offer-head{text-align:center;margin-bottom:64px;}
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+.price-card{
+  background:var(--white);border:1px solid var(--grey-line);
+  padding:48px 44px;position:relative;display:flex;flex-direction:column;
+  transition:transform .35s, box-shadow .35s;
+}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 30px 70px rgba(0,0,0,.10);}
+.price-card.premium{background:var(--ink);color:#f1efec;border-color:var(--ink);}
+.price-card.premium .pc-name,.price-card.premium .pc-price .net{color:#fff;}
+.pc-badge{
+  position:absolute;top:0;right:0;background:var(--red);color:#fff;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:7px 16px;font-weight:600;
+}
+.pc-kicker{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.price-card.premium .pc-kicker{color:var(--red-bright);}
+.pc-name{font-family:var(--serif);font-size:34px;font-weight:700;margin-bottom:26px;letter-spacing:.01em;}
+.pc-list{list-style:none;margin-bottom:30px;flex-grow:1;}
+.pc-list li{
+  font-size:14px;padding:12px 0 12px 26px;position:relative;
+  border-bottom:1px solid var(--grey-line);color:#3c3c3c;
+}
+.price-card.premium .pc-list li{border-color:rgba(255,255,255,.12);color:#cdcac6;}
+.pc-list li::before{content:"—";position:absolute;left:0;color:var(--red);}
+.pc-list li strong{color:inherit;font-weight:600;}
+.price-card.premium .pc-list li strong{color:#fff;}
+.pc-price{margin-bottom:8px;}
+.pc-price .net{font-family:var(--serif);font-size:42px;color:var(--ink);line-height:1;}
+.pc-price .net .cur{color:var(--red);font-size:28px;}
+.pc-price .gross{font-size:13px;color:var(--grey);margin-top:6px;}
+.pc-note{font-size:11.5px;color:var(--grey);font-style:italic;margin-bottom:24px;}
+.pc-cta{
+  text-align:center;background:var(--red);color:#fff;padding:15px;
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  transition:background .25s;
+}
+.pc-cta:hover{background:var(--red-bright);}
+.price-card.premium .pc-cta{background:var(--red);}
+.price-card.premium .pc-cta:hover{background:var(--red-bright);}
+.offer-extra{
+  text-align:center;margin-top:46px;font-size:14px;color:#444;max-width:760px;
+  margin-left:auto;margin-right:auto;line-height:1.7;
+}
+.offer-extra .closing{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--red);margin-top:24px;}
+
+/* Next edition banner */
+.nextedition{background:var(--ink);color:#fff;}
+.ne-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:70px;align-items:center;}
+.ne-poster img{width:100%;max-width:380px;margin:0 auto;box-shadow:0 30px 80px rgba(0,0,0,.5);}
+.ne-text .eyebrow{color:var(--red-bright);}
+.ne-text h3{font-family:var(--serif);font-size:clamp(38px,6vw,66px);font-weight:700;line-height:1;margin:14px 0 22px;}
+.ne-text h3 em{font-style:italic;color:var(--red-bright);}
+.ne-text p{color:#c9c6c2;font-size:16px;max-width:440px;}
+
+/* Partners */
+.partners{text-align:center;}
+.partner-logos{
+  display:flex;justify-content:center;align-items:center;gap:60px;flex-wrap:wrap;margin-top:50px;
+}
+.partner-logos img{height:110px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.7;transition:.3s;}
+.partner-logos img:hover{filter:grayscale(0);opacity:1;}
+
+/* Wide banner img */
+.wide-banner{padding:0 0 30px;}
+.wide-banner .container{max-width:560px;}
+.wide-banner img{width:100%;border:1px solid var(--grey-line);}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:50px;}
+.gallery-grid figure{overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3;background:#ddd;}
+.gallery-grid figure:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto;}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1);}
+.gallery-grid figure:hover img{transform:scale(1.07);}
+.gallery-grid figure::after{
+  content:"";position:absolute;inset:0;background:rgba(200,16,46,0);transition:.35s;
+}
+.gallery-grid figure:hover::after{background:rgba(200,16,46,.18);}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;inset:0;background:rgba(8,8,8,.95);z-index:3000;
+  display:none;align-items:center;justify-content:center;padding:40px;
+}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;}
+.lightbox-close{position:absolute;top:26px;right:34px;font-size:40px;color:#fff;cursor:pointer;line-height:1;background:none;border:none;}
+
+/* ============================== FOOTER ============================== */
+.site-footer{background:#0b0b0b;color:#cfccc8;padding:80px 0 0;}
+.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-col h4{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin-bottom:22px;font-weight:600;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:13px;}
+.footer-col a{font-size:13.5px;color:#a8a5a1;transition:color .2s;}
+.footer-col a:hover{color:var(--red-bright);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:30px 0;flex-wrap:wrap;gap:20px;}
+.footer-contact{font-size:13px;color:#9a9794;line-height:1.8;}
+.footer-contact a{color:#cfccc8;}
+.footer-contact a:hover{color:var(--red-bright);}
+.footer-social{display:flex;gap:18px;}
+.footer-social a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8f8c89;}
+.footer-social a:hover{color:#fff;}
+.footer-legal{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-top:1px solid rgba(255,255,255,.08);font-size:11.5px;color:#6f6c69;flex-wrap:wrap;gap:12px;}
+.footer-legal a{color:#6f6c69;}
+.footer-legal a:hover{color:#cfccc8;}
+
+/* ============================== RESPONSIVE ============================== */
+@media(max-width:1080px){
+  .nav{display:none;}
+  .header-cta .btn-pill:not(.red){display:none;}
+  .burger{display:flex;}
+  .intro-grid,.ne-grid{grid-template-columns:1fr;gap:44px;}
+  .ne-poster{order:-1;}
+}
+@media(max-width:760px){
+  .container{padding:0 20px;}
+  .section{padding:70px 0;}
+  .checklist,.tp-grid,.pricing{grid-template-columns:1fr;}
+  .check-item:nth-child(odd){border-right:none;padding-right:0;}
+  .check-item:nth-child(even){padding-left:0;}
+  .tp-col{padding:38px 26px;}
+  .tp-col:first-child{border-right:none;border-bottom:1px solid var(--grey-line);}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid figure:nth-child(1){grid-column:span 2;grid-row:auto;aspect-ratio:4/3;}
+  .footer-cols{grid-template-columns:1fr 1fr;gap:34px;}
+  .hero-meta{gap:24px;}
+}
+@media(max-width:460px){
+  .footer-cols{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr;}
+  .gallery-grid figure:nth-child(1){grid-column:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="https://fastlineracingacademy.pl"><img src="assets/Logo menu.png" alt="Fastline Racing Academy"></a>
+
+    <nav class="nav">
+      <ul>
+        <li class="has-sub">
+          <a href="#">O nas</a>
+          <ul class="submenu">
+            <li><a href="https://fastlineracingacademy.pl/o-szkole">Szkoła jazdy sportowej</a></li>
+            <li><a href="https://fastlineracingacademy.pl/mariusz-miekos-racing/">Mariusz Miękoś Racing</a></li>
+            <li><a href="https://fastlineracingacademy.pl/instruktorzy/">Instruktorzy</a></li>
+            <li><a href="https://fastlineracingacademy.pl/tory-wyscigowe/">Tory Wyścigowe</a></li>
+            <li><a href="https://fastlineracingacademy.pl/media-o-nas/">Media o nas</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="#">Oferta</a>
+          <ul class="submenu">
+            <li><a href="https://fastlineracingacademy.pl/stage-1-od-podstaw/">Szkolenie jazdy sportowej STAGE 1</a></li>
+            <li><a href="https://fastlineracingacademy.pl/stage-2-dla-srednio-zaawansowanych/">Szkolenie zaawansowane jazdy sportowej STAGE 2</a></li>
+            <li><a href="https://fastlineracingacademy.pl/stage-3-dla-zawodnikow/">Szkolenie jazdy wyścigowej STAGE 3</a></li>
+            <li><a href="https://fastlineracingacademy.pl/safe-and-sport-driving-academy/">Safe &amp; Sport Driving Academy</a></li>
+            <li><a href="https://fastlineracingacademy.pl/driver2racer/">Driver2Racer – PROGRAM SZKOLENIOWY</a></li>
+            <li><a href="https://fastlineracingacademy.pl/symulator/">Szkolenia i treningi na symulatorze</a></li>
+            <li><a href="https://fastlineracingacademy.pl/monaco/">Monaco 2026 – Wyprawa supersamochodami</a></li>
+            <li><a href="https://fastlineracingacademy.pl/ice-driving-laponia/">Ice Driving Experience LAPONIA</a></li>
+            <li><a href="https://fastlineracingacademy.pl/heels-on-the-track/">Heels on the Track – TYLKO DLA KOBIET</a></li>
+            <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe na torach</a></li>
+          </ul>
+        </li>
+        <li><a href="https://fastlineracingacademy.pl/samochody/">Samochody</a></li>
+        <li><a href="https://fastlineracingacademy.pl/cennik">Cennik</a></li>
+        <li><a href="https://fastlineracingacademy.pl/kalendarz/">Kalendarz</a></li>
+        <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe</a></li>
+        <li><a href="https://fastlineracingacademy.pl/kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn-pill" href="https://fastlineracingacademy.pl/sklep/">Kup Voucher</a>
+      <a class="btn-pill red" href="https://fastlineracingacademy.pl/kup-szkolenie/">Kup Szkolenie</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Zamknij">&times;</button>
+  <ul>
+    <li>
+      <a href="#">O nas</a>
+      <ul class="submenu-m">
+        <li><a href="https://fastlineracingacademy.pl/o-szkole">Szkoła jazdy sportowej</a></li>
+        <li><a href="https://fastlineracingacademy.pl/mariusz-miekos-racing/">Mariusz Miękoś Racing</a></li>
+        <li><a href="https://fastlineracingacademy.pl/instruktorzy/">Instruktorzy</a></li>
+        <li><a href="https://fastlineracingacademy.pl/tory-wyscigowe/">Tory Wyścigowe</a></li>
+        <li><a href="https://fastlineracingacademy.pl/media-o-nas/">Media o nas</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Oferta</a>
+      <ul class="submenu-m">
+        <li><a href="https://fastlineracingacademy.pl/stage-1-od-podstaw/">Szkolenie jazdy sportowej STAGE 1</a></li>
+        <li><a href="https://fastlineracingacademy.pl/stage-2-dla-srednio-zaawansowanych/">Szkolenie zaawansowane STAGE 2</a></li>
+        <li><a href="https://fastlineracingacademy.pl/stage-3-dla-zawodnikow/">Szkolenie jazdy wyścigowej STAGE 3</a></li>
+        <li><a href="https://fastlineracingacademy.pl/safe-and-sport-driving-academy/">Safe &amp; Sport Driving Academy</a></li>
+        <li><a href="https://fastlineracingacademy.pl/driver2racer/">Driver2Racer – PROGRAM SZKOLENIOWY</a></li>
+        <li><a href="https://fastlineracingacademy.pl/symulator/">Szkolenia i treningi na symulatorze</a></li>
+        <li><a href="https://fastlineracingacademy.pl/monaco/">Monaco 2026 – Wyprawa supersamochodami</a></li>
+        <li><a href="https://fastlineracingacademy.pl/ice-driving-laponia/">Ice Driving Experience LAPONIA</a></li>
+        <li><a href="https://fastlineracingacademy.pl/heels-on-the-track/">Heels on the Track – TYLKO DLA KOBIET</a></li>
+        <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe na torach</a></li>
+      </ul>
+    </li>
+    <li><a href="https://fastlineracingacademy.pl/samochody/">Samochody</a></li>
+    <li><a href="https://fastlineracingacademy.pl/cennik">Cennik</a></li>
+    <li><a href="https://fastlineracingacademy.pl/kalendarz/">Kalendarz</a></li>
+    <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe</a></li>
+    <li><a href="https://fastlineracingacademy.pl/kontakt">Kontakt</a></li>
+    <li><a href="https://fastlineracingacademy.pl/kup-szkolenie/">Kup Szkolenie</a></li>
+    <li><a href="https://fastlineracingacademy.pl/sklep/">Kup Voucher</a></li>
+  </ul>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <video autoplay muted loop playsinline poster="assets/zdj1.jpg">
+    <source src="assets/filmik.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay">
+    <div class="hero-kicker">Tylko dla kobiet</div>
+    <h1>Heels on<br>the <em>Track</em></h1>
+    <div class="hero-meta">
+      <div><div class="lbl">Data</div><div class="val">21 czerwca 2026</div></div>
+      <div><div class="lbl">Godziny</div><div class="val">10:00 – 16:00</div></div>
+      <div><div class="lbl">Lokalizacja</div><div class="val">Tor Łódź</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTRO ===================== -->
+<section class="section">
+  <div class="container intro-grid">
+    <div class="intro-copy">
+      <div class="eyebrow">Szkolenie z jazdy na torze</div>
+      <h2 class="h2">Pewna, dynamiczna,<br>sportowa <em>jazda</em></h2>
+      <p class="intro-lead">Chcesz wiedzieć, czym jest „test łosia", jak wyjść z poślizgu i — przede wszystkim — jak w ogóle do niego nie dopuścić?</p>
+      <p>Ruszamy z kolejną edycją <strong>HEELS ON THE TRACK</strong> — szkolenia z jazdy sportowej na torze z elementami bezpiecznej jazdy, tylko dla kobiet. Pewna, dynamiczna, sportowa, a nawet wyścigowa jazda nie jest wyłącznie domeną mężczyzn!</p>
+      <p>To <strong>5-godzinny program</strong>, który łączy część teoretyczną, praktyczny trening jazdy sportowej oraz doskonalenie techniki bezpiecznej jazdy. Szkolenie odbywa się w formule <strong>1-na-1</strong> z profesjonalnymi instruktorami — zawodnikami motorsportu — pod okiem 9-krotnego Wyścigowego Mistrza Polski, <strong>Mariusza Miękosia</strong>.</p>
+      <p>Na uczestniczki czekają również dodatkowe atrakcje, przygotowane wspólnie z naszymi partnerami. To świetna okazja, by podnieść swoje umiejętności za kierownicą i spędzić wartościowy czas w gronie ambitnych, inspirujących kobiet.</p>
+    </div>
+    <div class="intro-figure">
+      <img src="assets/zdj2.jpg" alt="Heels on the Track">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROGRAM ===================== -->
+<section class="section program">
+  <div class="container">
+    <div class="eyebrow">W programie m.in.</div>
+    <h2 class="h2">Co Cię <em>czeka</em></h2>
+    <div class="checklist">
+      <div class="check-item"><span class="check-num">01</span><p>Szkolenie teorii jazdy bezpiecznej i sportowej</p></div>
+      <div class="check-item"><span class="check-num">02</span><p>Trening jazdy 1 na 1 oraz co-drive z kierowcami wyścigowymi</p></div>
+      <div class="check-item"><span class="check-num">03</span><p>Całodniowy catering zawierający ciepłe posiłki</p></div>
+      <div class="check-item"><span class="check-num">04</span><p>Konkursy i do wygrania super nagrody</p></div>
+      <div class="check-item"><span class="check-num">05</span><p>Ciekawostki i porady, m.in. jak szybko poprawić make-up w aucie</p></div>
+      <div class="check-item"><span class="check-num">06</span><p>Race-taxi z Mistrzem Polski Mariuszem Miękosiem!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THEORY / PRACTICE ===================== -->
+<section class="section tight">
+  <div class="container">
+    <div class="tp-grid">
+      <div class="tp-col">
+        <span class="tag">Część I</span>
+        <h3>Część teoretyczna</h3>
+        <p>To godzinny wykład na temat podstawowych informacji związanych ze sportową i bezpieczną jazdą po torze. Skierowany jest do osób, które nie miały wcześniej do czynienia z profesjonalną jazdą sportową.</p>
+        <p>Przeprowadzany jest przez naszych instruktorów, zawodników motorsportowych, którzy chętnie dzielą się wiedzą zdobytą przez lata swojego doświadczenia na torze, za kierownicą sportowych samochodów.</p>
+      </div>
+      <div class="tp-col">
+        <span class="tag">Część II</span>
+        <h3>Część praktyczna</h3>
+        <ul class="practice-list">
+          <li>Prawidłowa pozycja za kierownicą</li>
+          <li>Poprawna praca kierownicą i pedałami</li>
+          <li>Podstawy fizyki poruszania się samochodu</li>
+          <li>Trening awaryjnego hamowania</li>
+          <li>Wykorzystanie systemów ABS i kontroli trakcji</li>
+          <li>Slalom</li>
+          <li>Test łosia</li>
+          <li>Poślizgi i ich opanowanie</li>
+          <li>Trening jazdy sportowej samochodami Fastline Racing Academy (Mercedes AMG, Alpine A110, Toyota Supra GR, Toyota Yaris GR)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OFERTA / PRICING ===================== -->
+<section class="section offer" id="oferta">
+  <div class="container">
+    <div class="offer-head">
+      <div class="eyebrow">Oferta</div>
+      <h2 class="h2">Wybierz swój <em>pakiet</em></h2>
+    </div>
+    <div class="pricing">
+      <!-- BASIC -->
+      <div class="price-card">
+        <div class="pc-kicker">Pakiet</div>
+        <div class="pc-name">Basic</div>
+        <ul class="pc-list">
+          <li>Wykład teoretyczny nt. jazdy bezpiecznej i sportowej</li>
+          <li>Sesje szkoleniowe na torze samochodami FRA (wybrane z floty: <strong>Mercedes AMG, Alpine A110, Toyota Supra GR</strong>)</li>
+          <li>Catering</li>
+          <li>Trening psychomotoryczny</li>
+          <li>Race taxi z kierowcą wyścigowym</li>
+        </ul>
+        <div class="pc-price">
+          <div class="net">3 200 <span class="cur">zł</span> <span style="font-size:15px;color:var(--grey);">netto</span></div>
+          <div class="gross">3 936 zł brutto</div>
+        </div>
+        <div class="pc-note">Rezerwacja terminu na podstawie zapłaty 100% ceny.</div>
+        <a class="pc-cta" href="https://fastlineracingacademy.pl/produkt/heels-on-the-track-2/">Kup szkolenie</a>
+      </div>
+      <!-- PREMIUM -->
+      <div class="price-card premium">
+        <div class="pc-badge">Premium</div>
+        <div class="pc-kicker">Pakiet Premium</div>
+        <div class="pc-name">Porsche</div>
+        <ul class="pc-list">
+          <li>Wykład teoretyczny nt. jazdy bezpiecznej i sportowej</li>
+          <li>Sesje szkoleniowe na torze samochodami FRA (<strong>2× Porsche 911, 1× Alpine A110, 1× Mercedes A45 AMG</strong>)</li>
+          <li>Catering</li>
+          <li>Trening psychomotoryczny</li>
+          <li>Race taxi z kierowcą wyścigowym</li>
+          <li>Sportowe rękawiczki</li>
+        </ul>
+        <div class="pc-price">
+          <div class="net">4 500 <span class="cur">zł</span> <span style="font-size:15px;color:var(--grey);">netto</span></div>
+          <div class="gross">5 535 zł brutto</div>
+        </div>
+        <div class="pc-note">Rezerwacja terminu na podstawie zapłaty 100% ceny.</div>
+        <a class="pc-cta" href="https://fastlineracingacademy.pl/produkt/heels-on-the-track-2/">Kup szkolenie</a>
+      </div>
+    </div>
+    <div class="offer-extra">
+      <p>Wyjątkowe chwile trzeba zachować — na torze będzie dostępna możliwość dokupienia relacji <strong>foto/video</strong> w cenie 246 zł brutto oraz <strong>rolki video pion/kwadrat</strong> w cenie 615 zł brutto.</p>
+      <p class="closing">Do zobaczenia na torze!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEXT EDITION ===================== -->
+<section class="section nextedition">
+  <div class="container ne-grid">
+    <div class="ne-poster"><img src="assets/logo heels.png" alt="Heels on the Track — następna edycja"></div>
+    <div class="ne-text">
+      <div class="eyebrow">Następna edycja</div>
+      <h3>26 <em>września</em> 2026</h3>
+      <p>Nie zdążysz na czerwcową edycję? Dołącz do nas jesienią. Liczba miejsc ograniczona — zapisz się już dziś i zarezerwuj swoje miejsce na torze.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARTNERS ===================== -->
+<section class="section partners">
+  <div class="container">
+    <div class="eyebrow" style="text-align:center;">Partnerzy wydarzenia</div>
+    <h2 class="h2">Razem <em>tworzymy</em> wydarzenie</h2>
+    <div class="partner-logos">
+      <img src="assets/partner1.png" alt="Partner 1">
+      <img src="assets/partner 2.png" alt="Partner 2">
+      <img src="assets/partner3.png" alt="Partner 3">
+      <img src="assets/partner4.png" alt="Partner 4">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WIDE BANNER ===================== -->
+<section class="wide-banner">
+  <div class="container">
+    <img src="assets/voucher.jpg" alt="Heels on the Track">
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Galeria</div>
+    <h2 class="h2">Z <em>toru</em></h2>
+    <div class="gallery-grid" id="gallery">
+      <figure><img src="assets/zdj1.jpg" alt="Heels on the Track"></figure>
+      <figure><img src="assets/zdj2.jpg" alt="Heels on the Track"></figure>
+      <figure><img src="assets/zdj3.jpg" alt="Heels on the Track"></figure>
+      <figure><img src="assets/zdj4.jpg" alt="Heels on the Track"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Zamknij">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Oferta</h4>
+        <ul>
+          <li><a href="https://fastlineracingacademy.pl/stage-1-od-podstaw/">STAGE 1: od podstaw</a></li>
+          <li><a href="https://fastlineracingacademy.pl/stage-2-dla-srednio-zaawansowanych/">STAGE 2: dla średnio – zaawansowanych</a></li>
+          <li><a href="https://fastlineracingacademy.pl/stage-3-dla-zawodnikow/">STAGE 3: dla zawodników</a></li>
+          <li><a href="https://fastlineracingacademy.pl/ice-driving-laponia/">Ice Driving Experience</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Instruktorzy</h4>
+        <ul>
+          <li><a href="https://fastlineracingacademy.pl/instruktorzy/">Wszyscy instruktorzy</a></li>
+        </ul>
+        <h4 style="margin-top:34px;">Tory</h4>
+        <ul>
+          <li><a href="https://fastlineracingacademy.pl/tory-wyscigowe/">Wszystkie Tory</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Samochody wyścigowe</h4>
+        <ul>
+          <li><a href="https://fastlineracingacademy.pl/samochody/">Wszystkie samochody</a></li>
+        </ul>
+        <h4 style="margin-top:34px;">Informacje</h4>
+        <ul>
+          <li><a href="https://fastlineracingacademy.pl/polityka-prywatnosci/">Polityka Prywatności</a></li>
+          <li><a href="https://fastlineracingacademy.pl/regulamin-platnosci/">Regulamin Płatności</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <div class="footer-contact">
+          FASTLINE EVENTS sp. z o. o.<br>
+          <a href="mailto:racingacademy@fastline.pl">racingacademy@fastline.pl</a><br>
+          <a href="tel:+48603102665">Łukasz: +48 603 102 665</a>
+        </div>
+        <div class="footer-social" style="margin-top:22px;">
+          <a href="https://pl-pl.facebook.com/fastlineracingacademy/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/fastline_racing_academy/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/showcase/fastline-racing-academy/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 Fastline</span>
+      <span><a href="https://webfolks.pl" target="_blank" rel="noopener">Built by Webfolks.pl</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/48732098423" target="_blank" rel="noopener"
+   style="position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:1500;box-shadow:0 8px 24px rgba(0,0,0,.25);"
+   aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Mobile menu
+const burger=document.getElementById('burger');
+const mobileNav=document.getElementById('mobileNav');
+const mobileClose=document.getElementById('mobileClose');
+burger.addEventListener('click',()=>mobileNav.classList.add('open'));
+mobileClose.addEventListener('click',()=>mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a[href^="https"], a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',()=>mobileNav.classList.remove('open'));
+});
+
+// Lightbox
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=document.getElementById('lightboxImg');
+const lightboxClose=document.getElementById('lightboxClose');
+document.querySelectorAll('#gallery img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    lightboxImg.src=img.src;
+    lightbox.classList.add('open');
+  });
+});
+lightboxClose.addEventListener('click',()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.classList.remove('open');});
+</script>
+</body>
+</html>
