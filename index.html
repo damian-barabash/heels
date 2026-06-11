@@ -93,9 +93,9 @@ a{color:inherit;text-decoration:none;}
 }
 .header-inner{
   display:flex;align-items:center;justify-content:space-between;
-  height:84px;gap:24px;
+  height:88px;gap:24px;
 }
-.logo img{height:46px;width:auto;}
+.logo img{height:64px;width:auto;display:block;}
 .nav{display:flex;align-items:center;gap:6px;}
 .nav > ul{display:flex;list-style:none;align-items:center;gap:2px;}
 .nav a{
@@ -333,8 +333,21 @@ a{color:inherit;text-decoration:none;}
 .lightbox-close{position:absolute;top:26px;right:34px;font-size:40px;color:#fff;cursor:pointer;line-height:1;background:none;border:none;}
 
 /* ============================== FOOTER ============================== */
-.site-footer{background:#0b0b0b;color:#cfccc8;padding:80px 0 0;}
-.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.1);}
+.site-footer{background:#0b0b0b;color:#cfccc8;padding:0 0 0;}
+.footer-brand{
+  text-align:center;padding:60px 0 50px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer-brand-label{
+  font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--grey);
+  margin-bottom:22px;font-weight:600;
+}
+.footer-brand img{
+  height:70px;width:auto;margin:0 auto;opacity:.95;
+  transition:opacity .25s;
+}
+.footer-brand a:hover img{opacity:1;}
+.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding:70px 0 60px;border-bottom:1px solid rgba(255,255,255,.1);}
 .footer-col h4{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin-bottom:22px;font-weight:600;}
 .footer-col ul{list-style:none;}
 .footer-col li{margin-bottom:13px;}
@@ -362,6 +375,8 @@ a{color:inherit;text-decoration:none;}
 @media(max-width:760px){
   .container{padding:0 20px;}
   .section{padding:70px 0;}
+  .header-inner{height:78px;}
+  .logo img{height:54px;}
   .checklist,.tp-grid,.pricing{grid-template-columns:1fr;}
   .check-item:nth-child(odd){border-right:none;padding-right:0;}
   .check-item:nth-child(even){padding-left:0;}
@@ -370,6 +385,7 @@ a{color:inherit;text-decoration:none;}
   .gallery-grid{grid-template-columns:repeat(2,1fr);}
   .gallery-grid figure:nth-child(1){grid-column:span 2;grid-row:auto;aspect-ratio:4/3;}
   .footer-cols{grid-template-columns:1fr 1fr;gap:34px;}
+  .footer-brand img{height:58px;}
   .hero-meta{gap:24px;}
 }
 @media(max-width:460px){
@@ -391,7 +407,7 @@ a{color:inherit;text-decoration:none;}
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo" href="https://fastlineracingacademy.pl"><img src="assets/Logo menu.png" alt="Fastline Racing Academy"></a>
+    <a class="logo" href="https://fastlineracingacademy.pl/heels-on-the-track/"><img src="assets/logo heels.png" alt="Heels on the Track"></a>
 
     <nav class="nav">
       <ul>
@@ -662,6 +678,16 @@ a{color:inherit;text-decoration:none;}
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
+  <!-- Fastline brand block -->
+  <div class="footer-brand">
+    <div class="container">
+      <div class="footer-brand-label">Organizator</div>
+      <a href="https://fastlineracingacademy.pl" target="_blank" rel="noopener">
+        <img src="assets/Logo menu.png" alt="Fastline Racing Academy">
+      </a>
+    </div>
+  </div>
+
   <div class="container">
     <div class="footer-cols">
       <div class="footer-col">
@@ -727,7 +753,7 @@ a{color:inherit;text-decoration:none;}
 (function(){
   const pre=document.getElementById('preloader');
   const start=Date.now();
-  const MIN=900; // минимум показа, чтобы анимация считалась
+  const MIN=900;
   function hide(){
     const wait=Math.max(0, MIN-(Date.now()-start));
     setTimeout(()=>{
@@ -738,7 +764,6 @@ a{color:inherit;text-decoration:none;}
   }
   if(document.readyState==='complete') hide();
   else window.addEventListener('load',hide);
-  // запасной предохранитель на случай долгой загрузки видео
   setTimeout(hide,3500);
 })();
 
