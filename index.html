@@ -105,7 +105,7 @@ a{color:inherit;text-decoration:none;}
 }
 .nav a:hover{color:var(--red-bright);}
 .has-sub{position:relative;}
-.has-sub > a::after{content:"+";margin-left:6px;font-weight:400;color:var(--grey);}
+.has-sub > a::after{content:"";}
 .submenu{
   position:absolute;top:100%;left:0;min-width:330px;
   background:#141414;border:1px solid rgba(255,255,255,.08);
@@ -178,7 +178,7 @@ a{color:inherit;text-decoration:none;}
 @keyframes rise{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 
 /* ============================== SECTIONS ============================== */
-.section{padding:110px 0;}
+.section{padding:110px 0;scroll-margin-top:88px;}
 .section.tight{padding:80px 0;}
 .eyebrow{
   font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--red);
@@ -290,6 +290,35 @@ a{color:inherit;text-decoration:none;}
 }
 .offer-extra .closing{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--red);margin-top:24px;}
 
+/* Magda block */
+.magda{background:var(--paper-2);}
+.magda-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:center;}
+.magda-figure{position:relative;}
+.magda-figure img{width:100%;aspect-ratio:4/5;object-fit:cover;}
+.magda-figure::before{
+  content:"";position:absolute;top:-22px;left:-22px;width:120px;height:120px;
+  border-top:2px solid var(--red);border-left:2px solid var(--red);z-index:2;
+}
+.magda-figure::after{
+  content:"";position:absolute;bottom:-22px;right:-22px;width:120px;height:120px;
+  border-bottom:2px solid var(--red);border-right:2px solid var(--red);
+}
+.magda-copy .name{
+  font-family:var(--serif);font-size:clamp(28px,3.4vw,40px);
+  font-weight:700;color:var(--ink);line-height:1.1;margin:10px 0 8px;
+  letter-spacing:-.01em;
+}
+.magda-copy .role{
+  font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--red);font-weight:600;margin-bottom:26px;
+}
+.magda-copy p{font-size:15px;color:#3a3a3a;margin-bottom:16px;line-height:1.65;}
+.magda-copy p strong{color:var(--ink);}
+.magda-copy .lead{
+  font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--ink);
+  font-style:italic;border-left:2px solid var(--red);padding-left:22px;margin:24px 0;
+}
+
 /* Next edition banner */
 .nextedition{background:var(--ink);color:#fff;}
 .ne-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:70px;align-items:center;}
@@ -369,8 +398,9 @@ a{color:inherit;text-decoration:none;}
   .nav{display:none;}
   .header-cta .btn-pill:not(.red){display:none;}
   .burger{display:flex;}
-  .intro-grid,.ne-grid{grid-template-columns:1fr;gap:44px;}
+  .intro-grid,.ne-grid,.magda-grid{grid-template-columns:1fr;gap:44px;}
   .ne-poster{order:-1;}
+  .magda-figure{order:-1;max-width:480px;margin:0 auto;}
 }
 @media(max-width:760px){
   .container{padding:0 20px;}
@@ -411,42 +441,16 @@ a{color:inherit;text-decoration:none;}
 
     <nav class="nav">
       <ul>
-        <li class="has-sub">
-          <a href="#">O nas</a>
-          <ul class="submenu">
-            <li><a href="https://fastlineracingacademy.pl/o-szkole">Szkoła jazdy sportowej</a></li>
-            <li><a href="https://fastlineracingacademy.pl/mariusz-miekos-racing/">Mariusz Miękoś Racing</a></li>
-            <li><a href="https://fastlineracingacademy.pl/instruktorzy/">Instruktorzy</a></li>
-            <li><a href="https://fastlineracingacademy.pl/tory-wyscigowe/">Tory Wyścigowe</a></li>
-            <li><a href="https://fastlineracingacademy.pl/media-o-nas/">Media o nas</a></li>
-          </ul>
-        </li>
-        <li class="has-sub">
-          <a href="#">Oferta</a>
-          <ul class="submenu">
-            <li><a href="https://fastlineracingacademy.pl/stage-1-od-podstaw/">Szkolenie jazdy sportowej STAGE 1</a></li>
-            <li><a href="https://fastlineracingacademy.pl/stage-2-dla-srednio-zaawansowanych/">Szkolenie zaawansowane jazdy sportowej STAGE 2</a></li>
-            <li><a href="https://fastlineracingacademy.pl/stage-3-dla-zawodnikow/">Szkolenie jazdy wyścigowej STAGE 3</a></li>
-            <li><a href="https://fastlineracingacademy.pl/safe-and-sport-driving-academy/">Safe &amp; Sport Driving Academy</a></li>
-            <li><a href="https://fastlineracingacademy.pl/driver2racer/">Driver2Racer – PROGRAM SZKOLENIOWY</a></li>
-            <li><a href="https://fastlineracingacademy.pl/symulator/">Szkolenia i treningi na symulatorze</a></li>
-            <li><a href="https://fastlineracingacademy.pl/monaco/">Monaco 2026 – Wyprawa supersamochodami</a></li>
-            <li><a href="https://fastlineracingacademy.pl/ice-driving-laponia/">Ice Driving Experience LAPONIA</a></li>
-            <li><a href="https://fastlineracingacademy.pl/heels-on-the-track/">Heels on the Track – TYLKO DLA KOBIET</a></li>
-            <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe na torach</a></li>
-          </ul>
-        </li>
-        <li><a href="https://fastlineracingacademy.pl/samochody/">Samochody</a></li>
-        <li><a href="https://fastlineracingacademy.pl/cennik">Cennik</a></li>
-        <li><a href="https://fastlineracingacademy.pl/kalendarz/">Kalendarz</a></li>
-        <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe</a></li>
-        <li><a href="https://fastlineracingacademy.pl/kontakt">Kontakt</a></li>
+        <li><a href="#o-szkoleniu">O szkoleniu</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#oferta">Oferta</a></li>
+        <li><a href="#magda">O Magdzie</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
 
     <div class="header-cta">
-      <a class="btn-pill" href="https://fastlineracingacademy.pl/sklep/">Kup Voucher</a>
-      <a class="btn-pill red" href="https://fastlineracingacademy.pl/kup-szkolenie/">Kup Szkolenie</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -456,36 +460,12 @@ a{color:inherit;text-decoration:none;}
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-close" id="mobileClose" aria-label="Zamknij">&times;</button>
   <ul>
-    <li>
-      <a href="#">O nas</a>
-      <ul class="submenu-m">
-        <li><a href="https://fastlineracingacademy.pl/o-szkole">Szkoła jazdy sportowej</a></li>
-        <li><a href="https://fastlineracingacademy.pl/mariusz-miekos-racing/">Mariusz Miękoś Racing</a></li>
-        <li><a href="https://fastlineracingacademy.pl/instruktorzy/">Instruktorzy</a></li>
-        <li><a href="https://fastlineracingacademy.pl/tory-wyscigowe/">Tory Wyścigowe</a></li>
-        <li><a href="https://fastlineracingacademy.pl/media-o-nas/">Media o nas</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">Oferta</a>
-      <ul class="submenu-m">
-        <li><a href="https://fastlineracingacademy.pl/stage-1-od-podstaw/">Szkolenie jazdy sportowej STAGE 1</a></li>
-        <li><a href="https://fastlineracingacademy.pl/stage-2-dla-srednio-zaawansowanych/">Szkolenie zaawansowane STAGE 2</a></li>
-        <li><a href="https://fastlineracingacademy.pl/stage-3-dla-zawodnikow/">Szkolenie jazdy wyścigowej STAGE 3</a></li>
-        <li><a href="https://fastlineracingacademy.pl/safe-and-sport-driving-academy/">Safe &amp; Sport Driving Academy</a></li>
-        <li><a href="https://fastlineracingacademy.pl/driver2racer/">Driver2Racer – PROGRAM SZKOLENIOWY</a></li>
-        <li><a href="https://fastlineracingacademy.pl/symulator/">Szkolenia i treningi na symulatorze</a></li>
-        <li><a href="https://fastlineracingacademy.pl/monaco/">Monaco 2026 – Wyprawa supersamochodami</a></li>
-        <li><a href="https://fastlineracingacademy.pl/ice-driving-laponia/">Ice Driving Experience LAPONIA</a></li>
-        <li><a href="https://fastlineracingacademy.pl/heels-on-the-track/">Heels on the Track – TYLKO DLA KOBIET</a></li>
-        <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe na torach</a></li>
-      </ul>
-    </li>
-    <li><a href="https://fastlineracingacademy.pl/samochody/">Samochody</a></li>
-    <li><a href="https://fastlineracingacademy.pl/cennik">Cennik</a></li>
-    <li><a href="https://fastlineracingacademy.pl/kalendarz/">Kalendarz</a></li>
-    <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe</a></li>
-    <li><a href="https://fastlineracingacademy.pl/kontakt">Kontakt</a></li>
+    <li><a href="#o-szkoleniu">O szkoleniu</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#oferta">Oferta</a></li>
+    <li><a href="#magda">O Magdzie</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
     <li><a href="https://fastlineracingacademy.pl/kup-szkolenie/">Kup Szkolenie</a></li>
     <li><a href="https://fastlineracingacademy.pl/sklep/">Kup Voucher</a></li>
   </ul>
@@ -508,7 +488,7 @@ a{color:inherit;text-decoration:none;}
 </section>
 
 <!-- ===================== INTRO ===================== -->
-<section class="section">
+<section class="section" id="o-szkoleniu">
   <div class="container intro-grid">
     <div class="intro-copy">
       <div class="eyebrow">Szkolenie z jazdy na torze</div>
@@ -525,7 +505,7 @@ a{color:inherit;text-decoration:none;}
 </section>
 
 <!-- ===================== PROGRAM ===================== -->
-<section class="section program">
+<section class="section program" id="program">
   <div class="container">
     <div class="eyebrow">W programie m.in.</div>
     <h2 class="h2">Co Cię <em>czeka</em></h2>
@@ -565,6 +545,24 @@ a{color:inherit;text-decoration:none;}
           <li>Trening jazdy sportowej samochodami Fastline Racing Academy (Mercedes AMG, Alpine A110, Toyota Supra GR, Toyota Yaris GR)</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MAGDA ===================== -->
+<section class="section magda" id="magda">
+  <div class="container magda-grid">
+    <div class="magda-figure">
+      <img src="assets/magda.jpg" alt="Magdalena Miękoś — założycielka HEELS ON THE TRACK">
+    </div>
+    <div class="magda-copy">
+      <div class="eyebrow">Twórczyni programu</div>
+      <h2 class="name">Magdalena <em style="font-style:italic;color:var(--red);">Miękoś</em></h2>
+      <div class="role">Pomysłodawczyni &amp; założycielka</div>
+      <p class="lead">Pomysłodawczyni i założycielka programu HEELS ON THE TRACK.</p>
+      <p>Od zawsze samochody były obecne i ważne w jej życiu, oraz najważniejszych dla niej facetów — <strong>taty, brata, a teraz męża</strong> — kierowcy wyścigowego. Większość małżeńskich weekendów spędzała z mężem <strong>Mariuszem</strong> i bratem <strong>Łukaszem Kaźmierczakiem</strong> na zawodach WSMP lub Lamborghini Super Trofeo jako kibicka i obserwatorka.</p>
+      <p>W Fastline Racing Academy odpowiadała również za obszar eventów firmowych. A teraz postanowiła pokazać, że <strong>tor to jest też miejsce dla dziewczyn!</strong></p>
+      <p>Jej marzeniem jest nie tylko zbudowanie społeczności dziewczyn wkręconych w samochody, ale udostępnienie platformy Fastline Racing Academy aby podnosić driving skills, poznawać techniki jazdy na torze, śniegu i lodzie, ale też zwiedzać unikatowe petrolhedzkie i nie tylko miejsca w Europie — a przy tym wszystkim dobrze się bawić za kierownicą!</p>
     </div>
   </div>
 </section>
@@ -657,7 +655,7 @@ a{color:inherit;text-decoration:none;}
 </section>
 
 <!-- ===================== GALLERY ===================== -->
-<section class="section">
+<section class="section" id="galeria">
   <div class="container">
     <div class="eyebrow">Galeria</div>
     <h2 class="h2">Z <em>toru</em></h2>
@@ -677,7 +675,7 @@ a{color:inherit;text-decoration:none;}
 </div>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
+<footer class="site-footer" id="kontakt">
   <!-- Fastline brand block -->
   <div class="footer-brand">
     <div class="container">
@@ -691,28 +689,37 @@ a{color:inherit;text-decoration:none;}
   <div class="container">
     <div class="footer-cols">
       <div class="footer-col">
+        <h4>O nas</h4>
+        <ul>
+          <li><a href="https://fastlineracingacademy.pl/o-szkole">Szkoła jazdy sportowej</a></li>
+          <li><a href="https://fastlineracingacademy.pl/mariusz-miekos-racing/">Mariusz Miękoś Racing</a></li>
+          <li><a href="https://fastlineracingacademy.pl/instruktorzy/">Instruktorzy</a></li>
+          <li><a href="https://fastlineracingacademy.pl/tory-wyscigowe/">Tory Wyścigowe</a></li>
+          <li><a href="https://fastlineracingacademy.pl/media-o-nas/">Media o nas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>Oferta</h4>
         <ul>
-          <li><a href="https://fastlineracingacademy.pl/stage-1-od-podstaw/">STAGE 1: od podstaw</a></li>
-          <li><a href="https://fastlineracingacademy.pl/stage-2-dla-srednio-zaawansowanych/">STAGE 2: dla średnio – zaawansowanych</a></li>
-          <li><a href="https://fastlineracingacademy.pl/stage-3-dla-zawodnikow/">STAGE 3: dla zawodników</a></li>
-          <li><a href="https://fastlineracingacademy.pl/ice-driving-laponia/">Ice Driving Experience</a></li>
+          <li><a href="https://fastlineracingacademy.pl/stage-1-od-podstaw/">STAGE 1 — od podstaw</a></li>
+          <li><a href="https://fastlineracingacademy.pl/stage-2-dla-srednio-zaawansowanych/">STAGE 2 — średnio-zaawansowany</a></li>
+          <li><a href="https://fastlineracingacademy.pl/stage-3-dla-zawodnikow/">STAGE 3 — dla zawodników</a></li>
+          <li><a href="https://fastlineracingacademy.pl/safe-and-sport-driving-academy/">Safe &amp; Sport Driving</a></li>
+          <li><a href="https://fastlineracingacademy.pl/driver2racer/">Driver2Racer</a></li>
+          <li><a href="https://fastlineracingacademy.pl/symulator/">Symulator</a></li>
+          <li><a href="https://fastlineracingacademy.pl/monaco/">Monaco 2026</a></li>
+          <li><a href="https://fastlineracingacademy.pl/ice-driving-laponia/">Ice Driving Laponia</a></li>
+          <li><a href="https://fastlineracingacademy.pl/eventy-firmowe/">Eventy Firmowe</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Instruktorzy</h4>
+        <h4>Akademia</h4>
         <ul>
-          <li><a href="https://fastlineracingacademy.pl/instruktorzy/">Wszyscy instruktorzy</a></li>
-        </ul>
-        <h4 style="margin-top:34px;">Tory</h4>
-        <ul>
-          <li><a href="https://fastlineracingacademy.pl/tory-wyscigowe/">Wszystkie Tory</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Samochody wyścigowe</h4>
-        <ul>
-          <li><a href="https://fastlineracingacademy.pl/samochody/">Wszystkie samochody</a></li>
+          <li><a href="https://fastlineracingacademy.pl/samochody/">Samochody</a></li>
+          <li><a href="https://fastlineracingacademy.pl/cennik">Cennik</a></li>
+          <li><a href="https://fastlineracingacademy.pl/kalendarz/">Kalendarz</a></li>
+          <li><a href="https://fastlineracingacademy.pl/kup-szkolenie/">Kup Szkolenie</a></li>
+          <li><a href="https://fastlineracingacademy.pl/sklep/">Kup Voucher</a></li>
         </ul>
         <h4 style="margin-top:34px;">Informacje</h4>
         <ul>
@@ -766,6 +773,22 @@ a{color:inherit;text-decoration:none;}
   else window.addEventListener('load',hide);
   setTimeout(hide,3500);
 })();
+
+// Smooth scroll with header offset
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+  link.addEventListener('click',e=>{
+    const id=link.getAttribute('href');
+    if(id.length<2)return;
+    const target=document.querySelector(id);
+    if(!target)return;
+    e.preventDefault();
+    const headerH=document.querySelector('.site-header').offsetHeight;
+    const y=target.getBoundingClientRect().top + window.pageYOffset - headerH + 1;
+    window.scrollTo({top:y,behavior:'smooth'});
+    // закрыть мобильное меню если открыто
+    document.getElementById('mobileNav').classList.remove('open');
+  });
+});
 
 // Mobile menu
 const burger=document.getElementById('burger');
