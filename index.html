@@ -246,6 +246,78 @@ a{color:inherit;text-decoration:none;}
 /* ============================== OFERTA / PRICING ============================== */
 .offer{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%);}
 .offer-head{text-align:center;margin-bottom:64px;}
+.offer-intro{
+  max-width:640px;margin:22px auto 0;font-size:16px;color:#444;line-height:1.7;
+}
+
+/* Day headers */
+.day-head{
+  display:flex;align-items:center;gap:24px;margin-bottom:36px;
+  padding-bottom:22px;border-bottom:2px solid var(--ink);
+}
+.day-head.second{margin-top:80px;}
+.day-num{
+  background:var(--red);color:#fff;font-size:11px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;padding:9px 16px;white-space:nowrap;
+}
+.day-title h3{
+  font-family:var(--serif);font-size:clamp(22px,2.8vw,30px);font-weight:700;
+  color:var(--ink);line-height:1.15;letter-spacing:-.01em;
+}
+.day-place{
+  display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--grey);margin-top:6px;font-weight:500;
+}
+
+/* Business session card */
+.biz-card{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:0;
+  background:var(--white);border:1px solid var(--grey-line);
+  overflow:hidden;
+}
+.biz-photo img{width:100%;height:100%;min-height:420px;object-fit:cover;}
+.biz-body{padding:48px 44px;display:flex;flex-direction:column;}
+.biz-name{
+  font-family:var(--serif);font-size:32px;font-weight:700;
+  color:var(--ink);margin-bottom:16px;letter-spacing:-.01em;
+}
+.biz-bio{font-size:15px;color:#444;line-height:1.65;margin-bottom:24px;}
+.biz-bio strong{color:var(--ink);}
+.biz-foot{
+  margin-top:auto;padding-top:26px;border-top:1px solid var(--grey-line);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;
+}
+.biz-note{font-size:12px;color:var(--grey);line-height:1.6;text-align:right;}
+.biz-note strong{color:var(--red);font-weight:600;}
+
+/* Combo packages */
+.price-card.combo{border-width:2px;border-color:var(--red);}
+.price-card.premium.combo{border-color:var(--red);}
+.pc-badge.dark{background:var(--ink);}
+.combo-calc{
+  font-size:12px;color:var(--grey);margin-top:8px;letter-spacing:.04em;
+}
+.price-card.premium .combo-calc{color:#8d8a86;}
+
+/* Offer contact */
+.offer-contact{
+  text-align:center;margin-top:60px;padding-top:50px;
+  border-top:1px solid var(--grey-line);
+}
+.oc-title{
+  font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--red);font-weight:600;margin-bottom:20px;
+}
+.oc-links{
+  display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.oc-links a{
+  font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);
+  border-bottom:1px solid var(--grey-line);padding-bottom:3px;transition:all .25s;
+}
+.oc-links a:hover{color:var(--red);border-color:var(--red);}
+.oc-sep{width:5px;height:5px;background:var(--red);flex-shrink:0;}
+
 .pricing{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
 .price-card{
   background:var(--white);border:1px solid var(--grey-line);
@@ -274,6 +346,7 @@ a{color:inherit;text-decoration:none;}
 .pc-price{margin-bottom:8px;}
 .pc-price .net{font-family:var(--serif);font-size:42px;color:var(--ink);line-height:1;}
 .pc-price .net .cur{color:var(--red);font-size:28px;}
+.pc-price .net .per{font-size:15px;color:var(--grey);font-weight:500;}
 .pc-price .gross{font-size:13px;color:var(--grey);margin-top:6px;}
 .pc-note{font-size:11.5px;color:var(--grey);font-style:italic;margin-bottom:24px;}
 .pc-cta{
@@ -288,7 +361,7 @@ a{color:inherit;text-decoration:none;}
   text-align:center;margin-top:46px;font-size:14px;color:#444;max-width:760px;
   margin-left:auto;margin-right:auto;line-height:1.7;
 }
-.offer-extra .closing{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--red);margin-top:24px;}
+.closing{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--red);margin-top:28px;font-weight:600;}
 
 /* Magda block */
 .magda{background:var(--paper-2);}
@@ -408,6 +481,15 @@ a{color:inherit;text-decoration:none;}
   .header-inner{height:78px;}
   .logo img{height:54px;}
   .checklist,.tp-grid,.pricing{grid-template-columns:1fr;}
+  .biz-card{grid-template-columns:1fr;}
+  .biz-photo img{min-height:0;aspect-ratio:4/3;}
+  .biz-body{padding:36px 26px;}
+  .biz-foot{flex-direction:column;align-items:flex-start;gap:16px;}
+  .biz-note{text-align:left;}
+  .day-head{flex-direction:column;align-items:flex-start;gap:14px;}
+  .day-head.second{margin-top:60px;}
+  .oc-links{flex-direction:column;gap:14px;}
+  .oc-sep{display:none;}
   .check-item:nth-child(odd){border-right:none;padding-right:0;}
   .check-item:nth-child(even){padding-left:0;}
   .tp-col{padding:38px 26px;}
@@ -480,7 +562,7 @@ a{color:inherit;text-decoration:none;}
     <div class="hero-kicker">Tylko dla kobiet</div>
     <h1>Heels on<br>the <em>Track</em></h1>
     <div class="hero-meta">
-      <div><div class="lbl">Data</div><div class="val">26 września 2026</div></div>
+      <div><div class="lbl">Data</div><div class="val">21 czerwca 2026</div></div>
       <div><div class="lbl">Godziny</div><div class="val">10:00 – 16:00</div></div>
       <div><div class="lbl">Lokalizacja</div><div class="val">Tor Łódź</div></div>
     </div>
@@ -572,26 +654,70 @@ a{color:inherit;text-decoration:none;}
   <div class="container">
     <div class="offer-head">
       <div class="eyebrow">Oferta</div>
-      <h2 class="h2">Wybierz swój <em>pakiet</em></h2>
+      <h2 class="h2">Dwa dni. <em>Tylko dla kobiet</em></h2>
+      <p class="offer-intro">Mamy dla Ciebie coś wyjątkowego — program coachingowy z wykładem o marce osobistej oraz szkolenie na torze.</p>
     </div>
+
+    <!-- ===== DZIEŃ 1 ===== -->
+    <div class="day-head">
+      <span class="day-num">Dzień 1</span>
+      <div class="day-title">
+        <h3>25 września — Sesja biznesowa</h3>
+        <span class="day-place">PURO Hotel Łódź</span>
+      </div>
+    </div>
+
+    <div class="biz-card">
+      <div class="biz-photo">
+        <img src="assets/magda_s.png" alt="Magdalena Piasecka">
+      </div>
+      <div class="biz-body">
+        <div class="pc-kicker">Marka osobista &amp; Instagram</div>
+        <div class="biz-name">Magdalena Piasecka</div>
+        <p class="biz-bio">Ekspertka sprzedaży marek premium i social media marketingu poprowadzi wyjątkowy, <strong>~3-godzinny wykład</strong> o marce osobistej i skutecznym Instagramie.</p>
+        <ul class="pc-list">
+          <li>Jak zbudować markę osobistą, która przyciąga właściwych klientów</li>
+          <li>Jak efektywnie prowadzić konto firmowe na Instagramie</li>
+          <li>Strategie komunikacji i skuteczny content</li>
+          <li>Jak mówić o sobie z klasą i budować zaangażowaną społeczność</li>
+        </ul>
+        <div class="biz-foot">
+          <div class="pc-price">
+            <div class="net">1 250 <span class="cur">zł</span> <span class="per">/ osoba</span></div>
+          </div>
+          <div class="biz-note">W cenie serwis kawowy i materiały szkoleniowe.<br><strong>Liczba miejsc ograniczona.</strong></div>
+        </div>
+        <a class="pc-cta" style="margin-top:24px;" href="https://secure.tpay.com/?h=a2c230439d4cff4c7d3d601ec0f6874793b3a787">Kup sesję biznesową</a>
+      </div>
+    </div>
+
+    <!-- ===== DZIEŃ 2 ===== -->
+    <div class="day-head second">
+      <span class="day-num">Dzień 2</span>
+      <div class="day-title">
+        <h3>26 września — Heels on the Track</h3>
+        <span class="day-place">Szkolenie na torze z Fastline Racing Academy</span>
+      </div>
+    </div>
+
     <div class="pricing">
       <!-- BASIC -->
       <div class="price-card">
         <div class="pc-kicker">Pakiet</div>
         <div class="pc-name">Basic</div>
         <ul class="pc-list">
-          <li>Wykład teoretyczny nt. jazdy bezpiecznej i sportowej</li>
-          <li>Sesje szkoleniowe na torze samochodami FRA (wybrane z floty: <strong>Mercedes AMG, Alpine A110, Toyota Supra GR</strong>)</li>
+          <li>Wykład teoretyczny jazdy bezpiecznej i sportowej</li>
+          <li>Sesje szkoleniowe na torze (<strong>Mercedes AMG, Alpine A110, Toyota Supra GR</strong>)</li>
           <li>Catering</li>
           <li>Trening psychomotoryczny</li>
           <li>Race taxi z kierowcą wyścigowym</li>
+          <li>Opcjonalnie: relacja foto/video <strong>200 zł netto</strong> (246 zł brutto) lub rolka video <strong>500 zł netto</strong> (615 zł brutto)</li>
         </ul>
         <div class="pc-price">
-          <div class="net">3 200 <span class="cur">zł</span> <span style="font-size:15px;color:var(--grey);">netto</span></div>
-          <div class="gross">3 936 zł brutto</div>
+          <div class="net">3 200 <span class="cur">zł</span> <span class="per">netto / osoba</span></div>
         </div>
-        <div class="pc-note">Rezerwacja terminu na podstawie zapłaty 100% ceny.</div>
-        <a class="pc-cta" href="https://secure.tpay.com/?h=8a5836651f0dbbf9b524467a90eaffa931a4e926">Kup szkolenie</a>
+        <div class="pc-note">Rezerwacja na podstawie zapłaty 100% ceny.</div>
+        <a class="pc-cta" href="https://secure.tpay.com/?h=2420fbd19fc429548c0deb38656329fc4192661d">Kup szkolenie</a>
       </div>
       <!-- PREMIUM -->
       <div class="price-card premium">
@@ -599,29 +725,84 @@ a{color:inherit;text-decoration:none;}
         <div class="pc-kicker">Pakiet Premium</div>
         <div class="pc-name">Porsche</div>
         <ul class="pc-list">
-          <li>Wykład teoretyczny nt. jazdy bezpiecznej i sportowej</li>
-          <li>Sesje szkoleniowe na torze samochodami FRA (<strong>2× Porsche 911, 1× Alpine A110, 1× Mercedes A45 AMG</strong>)</li>
+          <li>Wykład teoretyczny jazdy bezpiecznej i sportowej</li>
+          <li>Sesje szkoleniowe na torze (<strong>2× Porsche 911, 1× Alpine A110, 1× Mercedes A45 AMG</strong>)</li>
           <li>Catering</li>
           <li>Trening psychomotoryczny</li>
           <li>Race taxi z kierowcą wyścigowym</li>
           <li>Sportowe rękawiczki</li>
         </ul>
         <div class="pc-price">
-          <div class="net">4 500 <span class="cur">zł</span> <span style="font-size:15px;color:var(--grey);">netto</span></div>
-          <div class="gross">5 535 zł brutto</div>
+          <div class="net">4 500 <span class="cur">zł</span> <span class="per">netto / osoba</span></div>
         </div>
-        <div class="pc-note">Rezerwacja terminu na podstawie zapłaty 100% ceny.</div>
-        <a class="pc-cta" href="https://secure.tpay.com/?h=7d5fe6c664cc4b17f8755f08a854e684fc6f0a69">Kup szkolenie</a>
+        <div class="pc-note">Rezerwacja na podstawie zapłaty 100% ceny.</div>
+        <a class="pc-cta" href="https://secure.tpay.com/?h=2c3943751b5ee9a25c6a13957d06a487ea908375">Kup szkolenie</a>
       </div>
     </div>
-    <div class="offer-extra">
-      <p>Wyjątkowe chwile trzeba zachować — na torze będzie dostępna możliwość dokupienia relacji <strong>foto/video</strong> w cenie 246 zł brutto oraz <strong>rolki video pion/kwadrat</strong> w cenie 615 zł brutto.</p>
+
+    <!-- ===== PAKIETY ŁĄCZONE ===== -->
+    <div class="day-head second">
+      <span class="day-num">Oba dni</span>
+      <div class="day-title">
+        <h3>Pakiety łączone</h3>
+        <span class="day-place">Sesja biznesowa + szkolenie na torze</span>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <!-- COMBO BASIC -->
+      <div class="price-card combo">
+        <div class="pc-badge dark">Oba dni</div>
+        <div class="pc-kicker">Pakiet łączony</div>
+        <div class="pc-name">Sesja + Basic</div>
+        <ul class="pc-list">
+          <li>Sesja biznesowa z Magdaleną Piasecką — <strong>25 września</strong></li>
+          <li>Szkolenie na torze, pakiet <strong>BASIC</strong> — 26 września</li>
+          <li>Serwis kawowy i materiały szkoleniowe</li>
+          <li>Catering, trening psychomotoryczny, race taxi</li>
+        </ul>
+        <div class="pc-price">
+          <div class="net">4 450 <span class="cur">zł</span> <span class="per">netto / osoba</span></div>
+          <div class="combo-calc">1 250 zł + 3 200 zł</div>
+        </div>
+        <div class="pc-note">Rezerwacja na podstawie zapłaty 100% ceny.</div>
+        <a class="pc-cta" href="https://secure.tpay.com/?h=dca68bf692c7054c39a9deb37b0c11463d5cfb8b">Kup pakiet łączony</a>
+      </div>
+      <!-- COMBO PREMIUM -->
+      <div class="price-card premium combo">
+        <div class="pc-badge">Oba dni · Premium</div>
+        <div class="pc-kicker">Pakiet łączony</div>
+        <div class="pc-name">Sesja + Porsche</div>
+        <ul class="pc-list">
+          <li>Sesja biznesowa z Magdaleną Piasecką — <strong>25 września</strong></li>
+          <li>Szkolenie na torze, pakiet <strong>PREMIUM PORSCHE</strong> — 26 września</li>
+          <li>Serwis kawowy i materiały szkoleniowe</li>
+          <li>Catering, trening psychomotoryczny, race taxi</li>
+          <li>Sportowe rękawiczki</li>
+        </ul>
+        <div class="pc-price">
+          <div class="net">5 750 <span class="cur">zł</span> <span class="per">netto / osoba</span></div>
+          <div class="combo-calc">4 500 zł + 1 250 zł</div>
+        </div>
+        <div class="pc-note">Rezerwacja na podstawie zapłaty 100% ceny.</div>
+        <a class="pc-cta" href="https://secure.tpay.com/?h=a9e5aeae97bcdbd7d0b0b3cfaba890a7cb724dad">Kup pakiet łączony</a>
+      </div>
+    </div>
+
+    <!-- ===== KONTAKT ===== -->
+    <div class="offer-contact">
+      <div class="oc-title">Zainteresowana? Napisz lub zadzwoń</div>
+      <div class="oc-links">
+        <a href="tel:+48725270495">Marcin — 725 270 495</a>
+        <span class="oc-sep"></span>
+        <a href="mailto:racingacademy@fastline.pl">racingacademy@fastline.pl</a>
+      </div>
       <p class="closing">Do zobaczenia na torze!</p>
     </div>
   </div>
 </section>
 
-<!-- ===================== NEXT EDITION ===================== 
+<!-- ===================== NEXT EDITION ===================== -->
 <section class="section nextedition">
   <div class="container ne-grid">
     <div class="ne-poster"><img src="assets/logo heels.png" alt="Heels on the Track — następna edycja"></div>
@@ -631,7 +812,7 @@ a{color:inherit;text-decoration:none;}
       <p>Nie zdążysz na czerwcową edycję? Dołącz do nas jesienią. Liczba miejsc ograniczona — zapisz się już dziś i zarezerwuj swoje miejsce na torze.</p>
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- ===================== PARTNERS ===================== -->
 <section class="section partners">
